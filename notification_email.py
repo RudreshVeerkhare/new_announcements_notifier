@@ -65,6 +65,7 @@ if __name__ == "__main__":
         "veerkharerudresh@gmail.com",
         "saitarun.yellamraju@gmail.com",
         "jitensidhpura2000@gmail.com",
+        "aurkohaldi@gmail.com"
     ]
     password = os.environ.get("NOTIFY_PASS")  # to get email from password variables
     context = ssl.create_default_context()
