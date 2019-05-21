@@ -12,5 +12,5 @@ If both are different then it will send the new notifications to registered addr
 If both are same then program just log into log file and exits.
 
 **Python Libraries Used :**  
-* **smtolib, ssl** : To send email
+* **smtplib, ssl** : To send email
 * **requests, bs4** : To fetch data from website
