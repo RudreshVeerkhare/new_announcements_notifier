@@ -11,6 +11,6 @@
 If both are different then it will send the new notifications to registered addresses and then updates the ".notificaton" to current data for future use and updates log file and exits.  
 If both are same then program just log into log file and exits.
 
-**Python Librarys Used :**  
+**Python Libraries Used :**  
 * **smtolib, ssl** : To send email
 * **requests, bs4** : To fetch data from website
