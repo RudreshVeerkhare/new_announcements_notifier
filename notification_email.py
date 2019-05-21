@@ -33,11 +33,11 @@ def check_notification(notifications, email_content):
 
     # checking for existince of file
     if not os.path.exists(".notifications"):
-        with open("/home/rudresh/Desktop/Web_scrapping/.notifications", "w") as f:
+        with open("/home/notifier/.notifications", "w") as f:
             f.write(latest_notification.text)
         return
 
-    with open("/home/rudresh/Desktop/Web_scrapping/.notifications", "r") as f:
+    with open("/home/notifier.notifications", "r") as f:
         content = f.read()
 
     if content != latest_notification.text:
@@ -45,7 +45,7 @@ def check_notification(notifications, email_content):
             email_content += f"\n{str(list(notifications[i].children)[1])}"
 
         email_content += "\n<p style='font-size: larger;font-weight: 900;'>Will notify you when new notifications are available</p>"
-        with open("/home/rudresh/Desktop/Web_scrapping/log.txt", "a+") as f:
+        with open("/home/username/Desktop/log.txt", "a+") as f:
             for i in receiver:
                 try:
                     send_mail(latest_notification.text, email_content, i, sender)
@@ -54,19 +54,19 @@ def check_notification(notifications, email_content):
                     f.write(
                         f"{i} : Failed to send {now.strftime('%Y-%m-%d %H:%M:%S')}\n"
                     )
-        with open("/home/rudresh/Desktop/Web_scrapping/.notifications", "w") as f:
+        with open("/home/username/Desktop/.notifications", "w") as f:
             f.write(latest_notification.text)
 
 
 if __name__ == "__main__":
     port = 465
-    sender = "chhayavirkhare@gmail.com"
+    sender = os.environ.get("NOTIFY_EMAIL")  # to get email from environment variables
     receiver = [
         "veerkharerudresh@gmail.com",
         "saitarun.yellamraju@gmail.com",
         "jitensidhpura2000@gmail.com",
     ]
-    password = "9421741623"
+    password = os.environ.get("NOTIFY_PASS")  # to get email from password variables
     context = ssl.create_default_context()
     success = True
     now = datetime.datetime.now()
@@ -82,7 +82,7 @@ if __name__ == "__main__":
     except:
         success = False
 
-    with open("/home/rudresh/Desktop/Web_scrapping/log.txt", "a+") as f:
+    with open("/home/username/Desktop/log.txt", "a+") as f:
         f.write(
             f"Execution {'Success' if success else 'Failed'} {now.strftime('%Y-%m-%d %H:%M:%S')}\n\n"
         )
