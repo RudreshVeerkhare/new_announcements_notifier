@@ -67,7 +67,7 @@ if __name__ == "__main__":
         "jitensidhpura2000@gmail.com",
         "aurkohaldi@gmail.com"
     ]
-    password = os.environ.get("NOTIFY_PASS")  # to get email from password variables
+    password = os.environ.get("NOTIFY_PASS")  # to get password from environment variables
     context = ssl.create_default_context()
     success = True
     now = datetime.datetime.now()
